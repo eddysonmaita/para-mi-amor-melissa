@@ -11,25 +11,27 @@ function escribir() {
 }
 escribir();
 
-// BOTONES
+// ELEMENTOS
 const si = document.getElementById("si");
 const no = document.getElementById("no");
 const sobre = document.getElementById("sobre");
 
-// BOTON SI
+// BOTÓN SÍ (CINEMÁTICO)
 si.addEventListener("click", () => {
 
-    // efecto cinematico
-    document.body.style.transition = "1s";
+    document.body.style.transition = "2s";
     document.body.style.background = "black";
 
     setTimeout(() => {
         sobre.classList.remove("hidden");
         lanzarCorazones();
-    }, 800);
+    }, 1500);
+
+    // Oculta botones
+    document.querySelector(".botones").style.display = "none";
 });
 
-// BOTON NO (se escapa)
+// BOTÓN NO (SE ESCAPA)
 no.addEventListener("mouseover", () => {
     no.style.left = Math.random() * window.innerWidth + "px";
     no.style.top = Math.random() * window.innerHeight + "px";
