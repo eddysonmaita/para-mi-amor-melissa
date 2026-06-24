@@ -1,3 +1,4 @@
+// TEXTO QUE SE ESCRIBE
 const texto = "¿Sabes lo mucho que te amo Melissa? 💖";
 let i = 0;
 
@@ -8,40 +9,35 @@ function escribir() {
         setTimeout(escribir, 50);
     }
 }
-
 escribir();
 
 // BOTONES
-const botonSi = document.getElementById("si");
-const botonNo = document.getElementById("no");
-const sorpresa = document.getElementById("sorpresa");
+const si = document.getElementById("si");
+const no = document.getElementById("no");
+const sobre = document.getElementById("sobre");
 
-botonSi.addEventListener("click", () => {
-    sorpresa.classList.remove("hidden");
+si.addEventListener("click", () => {
+    sobre.classList.remove("hidden");
+    lanzarCorazones();
 });
 
-botonNo.addEventListener("mouseover", () => {
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
-
-    botonNo.style.left = x + "px";
-    botonNo.style.top = y + "px";
+no.addEventListener("mouseover", () => {
+    no.style.left = Math.random() * window.innerWidth + "px";
+    no.style.top = Math.random() * window.innerHeight + "px";
 });
 
-// corazones
-function crearCorazon() {
-    const corazon = document.createElement("div");
-    corazon.classList.add("corazon");
-    corazon.innerHTML = "❤️";
+// CORAZONES
+function lanzarCorazones() {
+    setInterval(() => {
+        const c = document.createElement("div");
+        c.innerHTML = "❤️";
+        c.classList.add("corazon");
 
-    corazon.style.left = Math.random() * window.innerWidth + "px";
-    corazon.style.top = window.innerHeight + "px";
+        c.style.left = Math.random() * window.innerWidth + "px";
+        c.style.top = window.innerHeight + "px";
 
-    document.body.appendChild(corazon);
+        document.body.appendChild(c);
 
-    setTimeout(() => {
-        corazon.remove();
-    }, 5000);
+        setTimeout(() => c.remove(), 5000);
+    }, 200);
 }
-
-setInterval(crearCorazon, 300);
