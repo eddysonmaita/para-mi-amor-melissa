@@ -46,5 +46,5 @@ function lanzarCorazones() {
         document.body.appendChild(c);
 
         setTimeout(() => c.remove(), 5000);
-    }, 500);
+    }, 2000);
 }
