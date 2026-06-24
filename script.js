@@ -16,11 +16,18 @@ const si = document.getElementById("si");
 const no = document.getElementById("no");
 const sobre = document.getElementById("sobre");
 
+const foto = document.getElementById("foto");
+
 si.addEventListener("click", () => {
     sobre.classList.remove("hidden");
+
+    setTimeout(() => {
+        foto.classList.remove("hidden");
+        foto.classList.add("mostrar");
+    }, 1000); // aparece después de 1 segundo
+
     lanzarCorazones();
 });
-
 no.addEventListener("mouseover", () => {
     no.style.left = Math.random() * window.innerWidth + "px";
     no.style.top = Math.random() * window.innerHeight + "px";
