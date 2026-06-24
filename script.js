@@ -1,4 +1,4 @@
-// TEXTO QUE SE ESCRIBE
+// TEXTO ANIMADO
 const texto = "¿Sabes lo mucho que te amo Melissa? 💖";
 let i = 0;
 
@@ -16,18 +16,20 @@ const si = document.getElementById("si");
 const no = document.getElementById("no");
 const sobre = document.getElementById("sobre");
 
-const foto = document.getElementById("foto");
-
+// BOTON SI
 si.addEventListener("click", () => {
-    sobre.classList.remove("hidden");
+
+    // efecto cinematico
+    document.body.style.transition = "1s";
+    document.body.style.background = "black";
 
     setTimeout(() => {
-        foto.classList.remove("hidden");
-        foto.classList.add("mostrar");
-    }, 1000); // aparece después de 1 segundo
-
-    lanzarCorazones();
+        sobre.classList.remove("hidden");
+        lanzarCorazones();
+    }, 800);
 });
+
+// BOTON NO (se escapa)
 no.addEventListener("mouseover", () => {
     no.style.left = Math.random() * window.innerWidth + "px";
     no.style.top = Math.random() * window.innerHeight + "px";
@@ -46,5 +48,5 @@ function lanzarCorazones() {
         document.body.appendChild(c);
 
         setTimeout(() => c.remove(), 5000);
-    }, 2000);
+    }, 200);
 }
