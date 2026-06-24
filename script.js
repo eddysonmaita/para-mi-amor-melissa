@@ -1,25 +1,34 @@
-const botonNo = document.getElementById("no");
-const botonSi = document.getElementById("si");
-const mensaje = document.getElementById("mensaje");
+const texto = "¿Sabes lo mucho que te amo Melissa? 💖";
+let i = 0;
 
-// BOTÓN SÍ 💖
+function escribir() {
+    if (i < texto.length) {
+        document.getElementById("typing").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribir, 50);
+    }
+}
+
+escribir();
+
+// BOTONES
+const botonSi = document.getElementById("si");
+const botonNo = document.getElementById("no");
+const sorpresa = document.getElementById("sorpresa");
+
 botonSi.addEventListener("click", () => {
-    mensaje.innerHTML = "Melissa ❤️ Te amo con todo mi corazón 💖✨ Eres lo mejor que me ha pasado 🥹";
+    sorpresa.classList.remove("hidden");
 });
 
-// BOTÓN NO 😆
 botonNo.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
 
     botonNo.style.left = x + "px";
     botonNo.style.top = y + "px";
-
-    let tamaño = Math.random() * 15 + 10;
-    botonNo.style.fontSize = tamaño + "px";
 });
 
-// CORAZONES FLOTANDO ❤️
+// corazones
 function crearCorazon() {
     const corazon = document.createElement("div");
     corazon.classList.add("corazon");
