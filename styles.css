@@ -2,20 +2,32 @@ body {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin-top: 100px;
+    overflow: hidden;
 }
 
 .container {
+    margin-top: 100px;
     background: white;
     padding: 40px;
     border-radius: 25px;
     display: inline-block;
     box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+    animation: aparecer 2s ease;
+}
+
+@keyframes aparecer {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
 }
 
 h1 {
     color: #ff4d6d;
-    margin-bottom: 30px;
+}
+
+.texto {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
 button {
@@ -25,12 +37,12 @@ button {
     border-radius: 12px;
     cursor: pointer;
     margin: 10px;
-    transition: all 0.3s ease;
 }
 
 #si {
     background-color: #ff4d6d;
     color: white;
+    transition: 0.3s;
 }
 
 #si:hover {
@@ -38,7 +50,26 @@ button {
 }
 
 #no {
-    background-color: #999;
+    background-color: gray;
     color: white;
     position: absolute;
+}
+
+/* Corazones */
+.corazon {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: flotar 5s linear infinite;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-800px);
+        opacity: 0;
+    }
 }
