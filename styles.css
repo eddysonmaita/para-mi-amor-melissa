@@ -89,3 +89,13 @@ button {
     from { transform: translateY(0); }
     to { transform: translateY(-800px); }
 }
+/* ocultar elemento */
+.hidden {
+    display: none;
+}
+
+/* animación aparición */
+.mostrar {
+    display: block;
+    animation: aparecer 1.5s ease;
+}
